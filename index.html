@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>MP3 Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <div class = "container">
+        <h1>Youtube Player</h1>
+        <div class="search">
+            <form>
+                <label for="select_type">Select Media Type</label>
+                <select id="selectType">
+                    <option value="Video" id="typeVideo">Video</option>
+                    <option value="Music" id="typeMusic">Music</option>
+                </select>
+                <input type="submit" id="bt_submit" onclick="showSearchBox(document.getElementById('selectType').value)"><br><br>
+            </form>
+            <div class="search" id="video" style="display: none;">
+                <form>
+                    <label for="searchVieo" class="labelSearch">Nhập tên video: </label><br>
+                    <input type="text" name="" value="" id="searchVieo">
+                    <input type="submit" id="bt_submit" onclick=""><br><br>
+                </form>
+                <!-- Function -->
+            </div>
+
+            <div class="search" id="music" style="display: none;">
+                <form>
+                    <form>
+                        <label for="searchMusic" class="labelSearch">Nhập tên bài hát: </label><br>
+                        <input type="text" name="" value="" id="searchMusic">
+                        <input type="submit" id="bt_submit" onclick=""><br><br>
+                    </form>
+                   <!--Function -->
+                </form>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>
