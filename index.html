@@ -3,10 +3,11 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>MP3 Player</title>
+    <title>Multimedia Player</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <script src='script/main.js'></script>
+    <script src='script/youtube_api.js'></script>
 </head>
 <body>
     <div class = "container">
@@ -18,28 +19,42 @@
                     <option value="Video" id="typeVideo">Video</option>
                     <option value="Music" id="typeMusic">Music</option>
                 </select>
-                <input type="submit" id="bt_submit" onclick="showSearchBox(document.getElementById('selectType').value)"><br><br>
+                <input 
+                    type="submit" 
+                    id="bt_submit" 
+                    onclick="showSearchBox(event, document.getElementById('selectType').value)">
+                <br><br>
             </form>
+
             <div class="search" id="video" style="display: none;">
-                <form>
-                    <label for="searchVieo" class="labelSearch">Nhập tên video: </label><br>
-                    <input type="text" name="" value="" id="searchVieo">
-                    <input type="submit" id="bt_submit" onclick=""><br><br>
+                <p>Nhập tên video, bài hát, playlist,...</p>
+                <form onsubmit="ytEmbed.init({'block':'youtubeDivSearch','type':'search','q':document.getElementById('ytSearchField').value,'results': 5,'meta':true,'layout':'thumbnails'}); return false;">
+                <input type="text" id="ytSearchField">
+                <input type="submit" value="  Search   ">
                 </form>
-                <!-- Function -->
+                <div id="youtubeDivSearch"></div>
             </div>
 
             <div class="search" id="music" style="display: none;">
-                <form>
-                    <form>
-                        <label for="searchMusic" class="labelSearch">Nhập tên bài hát: </label><br>
-                        <input type="text" name="" value="" id="searchMusic">
-                        <input type="submit" id="bt_submit" onclick=""><br><br>
-                    </form>
-                   <!--Function -->
-                </form>
-            </div>
+                <div>
+                    <p class="labelSearch" style="display: inline-block;">Nhập mã bài hát</p>
+                    <input type="text" name="link" id='searchMusic' style="display: inline-block;">
+                    <button id='bt_submit' onclick="searchMusic(event, document.getElementById('searchMusic').value)">Tìm kiếm</button>
+                </div>
 
+                <!--Function -->
+                <!-- <iframe width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/XSAw8ya7zxM" 
+                    title="YouTube video player" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                    id='musicPlayer'>
+                </iframe> -->
+                <audio controls autoplay>
+                    <source src="https://www.youtube.com/embed/XSAw8ya7zxM" type="audio/mp4" id='musicPlayer'>
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
         </div>
     </div>
     
