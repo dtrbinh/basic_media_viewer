@@ -1,0 +1,45 @@
+body{
+    background-color: hsl(219, 100%, 80%);
+}
+
+h1{
+    text-align: center;
+}
+
+#scrollBar{
+    position:absolute;
+    left: 20px;
+    top: 200px;
+    margin:4px, 4px;
+    padding:4px;
+    background-color: rgb(255, 255, 255);
+    width: 400px;
+    height: 690px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    text-align:justify;
+    border: 2px solid black;
+}
+
+#videoPlayer{
+    position: absolute;
+    top: 200px;
+    left: 470px;
+    width: 1000px;
+    height: 700px;
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 15px 16px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 15px 16px 5px 0px rgba(39, 39, 39, 0.75);
+    -moz-box-shadow: 15px 16px 5px 0px rgba(175,175,175,0.75);
+}
+#musicPlayer{
+    color: black;
+}
+.footer{
+    position:absolute;
+    top: 920px;
+}
+#credit{
+    text-align: center;
+}

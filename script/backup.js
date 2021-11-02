@@ -391,15 +391,15 @@ var ytEmbed = {
      * Create the inline player supporting html5 and flash through iframe
      */
     createPlayer: function(cfg) {
-        var div = document.getElementById('videoPlayer');
-        document.getElementById('imgVideoPlayer').style.display = 'none';
+        var div = document.getElementById(cfg.block);
+
         var hold = document.createElement('div');
         hold.className = 'ytPlayer';
 
         var iframe = document.createElement('iframe');
-        iframe.setAttribute('id', 'videoPlayer' + 'Player');
-        iframe.setAttribute('width', 1000);
-        iframe.setAttribute('height', 700);
+        iframe.setAttribute('id', cfg.block + 'Player');
+        iframe.setAttribute('width', cfg.width);
+        iframe.setAttribute('height', cfg.height);
         iframe.setAttribute('frameBorder', '0');
         iframe.setAttribute('src', 'https://www.youtube.com/embed/' + ytPlayerParams.videoId + '?autoplay=' + ytPlayerParams.autoplay + '&modestbranding=1'); //controlbar set
 
@@ -484,12 +484,11 @@ var ytEmbed = {
      * Play video (static)
      */
     playVideo: function(data) {
-        document.getElementById('imgVideoPlayer').style.display = 'none';
         console.log(data);
         if (data.cfg.parent) {
             var player = document.getElementById(data.cfg.parent + "Player");
         } else {
-            var player = document.getElementById('videoPlayer' + "Player");
+            var player = document.getElementById(data.cfg.block + "Player");
         }
 
         if (!player) {
