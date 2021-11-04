@@ -14,7 +14,7 @@
         <h1>Youtube Player</h1>
 
         <div class="search">
-            <form>
+            <form id='select'>
                 <label for="select_type">Select Media Type</label>
                 <select id="selectType">
                     <option value="Video" id="typeVideo">Video</option>
@@ -27,12 +27,14 @@
             </form>
 
             <div class="search" id="video" style="display: none;">
-                <p>Nhập từ khoá</p>
+                <p 
+                    id ='text_videoSearch' 
+                    style="display:inline-block ;">NHẬP TỪ KHOÁ</p>
                 <form 
                     onsubmit="ytEmbed.init({'block':'youtubeDivSearch','type':'search','q':document.getElementById('ytSearchField').value,'results': 20,'meta':true,'layout':'thumbnails'}); return false;"
                     style="display: inline-block;">
-                    <input type="text" id="ytSearchField">
-                    <input type="submit" value="  Search   ">
+                    <input type="text" id="ytSearchField" style="display: inline-block;">
+                    <input type="submit" value="  Search   " style="display: inline-block;">
                     <br><br>
                 </form>
             </div>
