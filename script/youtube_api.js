@@ -305,7 +305,7 @@ var ytEmbed = {
                     li.appendChild(a);
                 } else {
                     //this.cfg.layout = full
-                    li.innerHTML = '<table cellspacing="0" cellpadding="0" border="0"><tr><td valign="top" rowspan="2"></td><td valign="top"><h3>' + entry.snippet.title + '</h3><span>' + this.formatDescription(entry.snippet.description) + '</span></td><td valign="top" style="width: 150px" class="meta"><div>' + (entry.contentDetails ? 'Duration: ' + ytEmbed.formatDuration(entry.contentDetails.duration) + '<br>' : '') + (entry.statistics ? 'Views: ' + entry.statistics.viewCount + '<br>' : '') + 'From: <a href="https://www.youtube.com/profile?user=' + entry.snippet.channelTitle + '">' + entry.snippet.channelTitle + '</a></div></td></tr></table>';
+                    li.innerHTML = '<table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td valign="top" ></td></tr> <tr><td valign="top"><h4>' + entry.snippet.title + '</h4><span>' + '</span></td></tr><tr><td valign="top" style="width: 150px" class="meta"><div>' +(entry.contentDetails ? 'Duration: ' + ytEmbed.formatDuration(entry.contentDetails.duration) + '' : '') + '</a></div></td></tr></tbody></table>' + '--------------------------------------------------<br>'; //+ (entry.statistics ? 'Views: ' + entry.statistics.viewCount + '<br>' : '') + 'From: <a href="https://www.youtube.com/profile?user=' + entry.snippet.channelTitle + '">' + entry.snippet.channelTitle + '</a></div></td></tr></table>' + this.formatDescription(entry.snippet.description) +
                     li.firstChild.firstChild.firstChild.firstChild.appendChild(a);
                 }
                 ul.appendChild(li);
@@ -402,7 +402,7 @@ var ytEmbed = {
         iframe.setAttribute('height', 700);
         iframe.setAttribute('frameBorder', '0');
         iframe.setAttribute('src', 'https://www.youtube.com/embed/' + ytPlayerParams.videoId + '?autoplay=' + ytPlayerParams.autoplay + '&modestbranding=1'); //controlbar set
-
+        iframe.setAttribute('allowfullscreen', 'allowfullscreen');
         hold.appendChild(iframe);
         div.insertBefore(hold, div.firstChild);
 
